@@ -46,25 +46,28 @@ namespace ShootingDice
             smack2.Play(player3);
             Console.WriteLine("-------------------");
 
-            //creating onehigherroll
+            //creating onehigherroll and adding to game
             OneHigherPlayer oneHigher = new OneHigherPlayer();
             oneHigher.Name = "Ryan";
             oneHigher.Play(smack2);
             Console.WriteLine("-------------------");
 
-            //creating humanplayer
+            //creating humanplayer and adding to game
             HumanPlayer user = new HumanPlayer();
-            Console.Write("What's your name?> ");
+            Console.WriteLine("What's your name?> ");
             user.Name = Console.ReadLine();
             user.Play(player1);
             Console.WriteLine("-------------------");
 
-
-
+            //creating creative smack-talker and adding to game
+            CreativeSmackTalkingPlayer randomInsulter = new CreativeSmackTalkingPlayer();
+            randomInsulter.Name = "Shakespeare";
+            randomInsulter.Play(smack);
+            Console.WriteLine("-------------------");
 
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, smack2, oneHigher, user
+                player1, player2, player3, large, smack, smack2, oneHigher, user, randomInsulter
             };
             //code for 4th and 5th rolls, with random pairs of opponents
             PlayMany(players);
