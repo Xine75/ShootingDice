@@ -33,8 +33,23 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            SmackTalkingPlayer smack = new SmackTalkingPlayer();
+            smack.Name = "Jeff";
+            smack.Taunt = "Take that you most notable coward, you infinite and endless liar, you hourly promise-breaker, you owner of not one good quality!";
+            smack.Play(player3);
+            Console.WriteLine("-------------------");
+
+            SmackTalkingPlayer smack2 = new SmackTalkingPlayer();
+            smack2.Name = "Megan";
+            smack2.Taunt = "I am sick when I do look on thee!";
+            smack2.Play(player3);
+            Console.WriteLine("-------------------");
+
+
+
+
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1, player2, player3, large, smack, smack2
             };
             //code for 4th and 5th rolls, with random pairs of opponents
             PlayMany(players);
