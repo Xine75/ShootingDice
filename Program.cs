@@ -8,7 +8,7 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
-            //Code for first 3 rolls
+            //initial code for "regular" players
             Player player1 = new Player();
             player1.Name = "Bob";
 
@@ -33,6 +33,7 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            //creating smack-talkers and getting them in the game
             SmackTalkingPlayer smack = new SmackTalkingPlayer();
             smack.Name = "Jeff";
             smack.Taunt = "Take that you most notable coward, you infinite and endless liar, you hourly promise-breaker, you owner of not one good quality!";
@@ -45,11 +46,18 @@ namespace ShootingDice
             smack2.Play(player3);
             Console.WriteLine("-------------------");
 
+            //creating onehigherroll
+            OneHigherPlayer oneHigher = new OneHigherPlayer();
+            oneHigher.Name = "Ryan";
+            oneHigher.Play(smack2);
+            Console.WriteLine("-------------------");
+
+
 
 
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, smack2
+                player1, player2, player3, large, smack, smack2, oneHigher
             };
             //code for 4th and 5th rolls, with random pairs of opponents
             PlayMany(players);
