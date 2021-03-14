@@ -8,30 +8,30 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
-            //initial code for "regular" players
+            // //initial code for "regular" players
             Player player1 = new Player();
             player1.Name = "Bob";
 
             Player player2 = new Player();
             player2.Name = "Sue";
 
-            player2.Play(player1);
+            // player2.Play(player1);
 
-            Console.WriteLine("-------------------");
+            //Console.WriteLine("-------------------");
 
             Player player3 = new Player();
             player3.Name = "Wilma";
 
-            player3.Play(player2);
+            //player3.Play(player2);
 
-            Console.WriteLine("-------------------");
+            //Console.WriteLine("-------------------");
 
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
 
-            player1.Play(large);
+            // player1.Play(large);
 
-            Console.WriteLine("-------------------");
+            //Console.WriteLine("-------------------");
 
             //creating smack-talkers and getting them in the game
             SmackTalkingPlayer smack = new SmackTalkingPlayer();
@@ -65,11 +65,26 @@ namespace ShootingDice
             randomInsulter.Play(smack);
             Console.WriteLine("-------------------");
 
+            //creating sore loser and adding to game
+            SoreLoserPlayer brat = new SoreLoserPlayer();
+            brat.Name = "Bratty Betty";
+            try
+            {
+                brat.Play(large);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Bratty Betty says: Ugh I hate this game!");
+            }
+
+            Console.WriteLine("-------------------");
+
+
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, smack2, oneHigher, user, randomInsulter
+                player1, player2, player3, large, smack, smack2, oneHigher, user, randomInsulter, brat
             };
-            //code for 4th and 5th rolls, with random pairs of opponents
+            //code for rest of rolls, with random pairs of opponents
             PlayMany(players);
         }
         //code to create the randomly generated games opponents
@@ -99,7 +114,16 @@ namespace ShootingDice
                 // Make adjacent players play one another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
-                player1.Play(player2);
+                //player1.Play(player2);
+                try
+                {
+                    player1.Play(player2);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Bratty Betty says: Ugh I hate this game!");
+                    continue;
+                }
             }
         }
     }
