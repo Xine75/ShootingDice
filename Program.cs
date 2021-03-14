@@ -36,7 +36,7 @@ namespace ShootingDice
             //creating smack-talkers and getting them in the game
             SmackTalkingPlayer smack = new SmackTalkingPlayer();
             smack.Name = "Jeff";
-            smack.Taunt = "Take that you most notable coward, you infinite and endless liar, you hourly promise-breaker, you owner of not one good quality!";
+            smack.Taunt = "You most notable coward, you infinite and endless liar, you hourly promise-breaker, you owner of not one good quality!";
             smack.Play(player3);
             Console.WriteLine("-------------------");
 
@@ -52,12 +52,19 @@ namespace ShootingDice
             oneHigher.Play(smack2);
             Console.WriteLine("-------------------");
 
+            //creating humanplayer
+            HumanPlayer user = new HumanPlayer();
+            Console.Write("What's your name?> ");
+            user.Name = Console.ReadLine();
+            user.Play(player1);
+            Console.WriteLine("-------------------");
+
 
 
 
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, smack2, oneHigher
+                player1, player2, player3, large, smack, smack2, oneHigher, user
             };
             //code for 4th and 5th rolls, with random pairs of opponents
             PlayMany(players);
