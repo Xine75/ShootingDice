@@ -8,6 +8,7 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
+            //Code for first 3 rolls
             Player player1 = new Player();
             player1.Name = "Bob";
 
@@ -35,10 +36,10 @@ namespace ShootingDice
             List<Player> players = new List<Player>() {
                 player1, player2, player3, large
             };
-
+            //code for 4th and 5th rolls, with random pairs of opponents
             PlayMany(players);
         }
-
+        //code to create the randomly generated games opponents
         static void PlayMany(List<Player> players)
         {
             Console.WriteLine();
@@ -62,7 +63,7 @@ namespace ShootingDice
             {
                 Console.WriteLine("-------------------");
 
-                // Make adjacent players play noe another
+                // Make adjacent players play one another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
                 player1.Play(player2);
