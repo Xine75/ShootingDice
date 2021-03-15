@@ -22,18 +22,20 @@ namespace ShootingDice
             large.Name = "Bigun Rollsalot";
 
             //creating smack-talker
+            SmackTalkingPlayer smack = new SmackTalkingPlayer();
+            smack.Name = "Jeff";
+            smack.Taunt = "Get a life!";
+
             SmackTalkingPlayer smack2 = new SmackTalkingPlayer();
             smack2.Name = "Megan";
-            smack2.Taunt = "I am sick when I do look on thee!";
+            smack2.Taunt = "Grow up!";
 
             //creating onehigherroll player
             OneHigherPlayer oneHigher = new OneHigherPlayer();
             oneHigher.Name = "Ryan";
 
-            //creating humanplayer and getting their name input
+            //creating humanplayer (name input in their player code)
             HumanPlayer user = new HumanPlayer();
-            Console.WriteLine("What's your name?> ");
-            user.Name = Console.ReadLine();
 
             //creating creative smack-talker
             CreativeSmackTalkingPlayer randomInsulter = new CreativeSmackTalkingPlayer();
@@ -47,16 +49,17 @@ namespace ShootingDice
             UpperHalfPlayer high = new UpperHalfPlayer();
             high.Name = "Rigged Ronnie";
 
+            //creating sore loser/upper half player
+            SoreLoserUpperHalfPlayer noFun = new SoreLoserUpperHalfPlayer();
+            noFun.Name = "No Fun Frankie";
 
-
-
-            List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack2, oneHigher, user, randomInsulter, brat, high
-            };
             //code for rest of rolls, with random pairs of opponents
+            List<Player> players = new List<Player>() {
+                player1, player2, player3, large, smack, smack2, oneHigher, user, randomInsulter, brat, high, noFun
+            };
             PlayMany(players);
         }
-        //code to create the randomly generated games opponents
+        //code to create the randomly generated opponents
         static void PlayMany(List<Player> players)
         {
             Console.WriteLine();
@@ -83,15 +86,22 @@ namespace ShootingDice
                 // Make adjacent players play one another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
-                //player1.Play(player2);
+
                 try
                 {
                     player1.Play(player2);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Bratty Betty says: Ugh I hate this game!");
-                    continue;
+                    if (ex.Message == "Throws a Fit")
+                    {
+                        Console.WriteLine("Bratty Betty throws a fit.");
+                        continue;
+                    }
+                    if (ex.Message == "HissyFit")
+                    {
+                        Console.WriteLine("No Fun Frankie makes everyone miserable.");
+                    }
                 }
             }
         }

@@ -8,16 +8,18 @@ namespace ShootingDice
     {
         public override void Play(Player other)
         {
-            Console.Write($"Hello {Name}! What's your roll?\n(1-15)> ");
+            Console.WriteLine("What's your name?> ");
+            string userName = Console.ReadLine();
+            Console.Write($"Hello {userName}! What's your roll?\n(1-15)> ");
             string humanRoll = Console.ReadLine();
             int humanRollInt = int.Parse(humanRoll);
             int otherRoll = other.Roll();
 
-            Console.WriteLine($"{Name} rolls a {humanRollInt}");
+            Console.WriteLine($"{userName} rolls a {humanRollInt}");
             Console.WriteLine($"{other.Name} rolls a {otherRoll}");
             if (humanRollInt > otherRoll)
             {
-                Console.WriteLine($"{Name} Wins!");
+                Console.WriteLine($"{userName} Wins!");
             }
             else if (humanRollInt < otherRoll)
             {
