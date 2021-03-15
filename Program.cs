@@ -15,74 +15,43 @@ namespace ShootingDice
             Player player2 = new Player();
             player2.Name = "Sue";
 
-            // player2.Play(player1);
-
-            //Console.WriteLine("-------------------");
-
             Player player3 = new Player();
             player3.Name = "Wilma";
-
-            //player3.Play(player2);
-
-            //Console.WriteLine("-------------------");
 
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
 
-            // player1.Play(large);
-
-            //Console.WriteLine("-------------------");
-
-            //creating smack-talkers and getting them in the game
-            SmackTalkingPlayer smack = new SmackTalkingPlayer();
-            smack.Name = "Jeff";
-            smack.Taunt = "You most notable coward, you infinite and endless liar, you hourly promise-breaker, you owner of not one good quality!";
-            smack.Play(player3);
-            Console.WriteLine("-------------------");
-
+            //creating smack-talker
             SmackTalkingPlayer smack2 = new SmackTalkingPlayer();
             smack2.Name = "Megan";
             smack2.Taunt = "I am sick when I do look on thee!";
-            smack2.Play(player3);
-            Console.WriteLine("-------------------");
 
-            //creating onehigherroll and adding to game
+            //creating onehigherroll player
             OneHigherPlayer oneHigher = new OneHigherPlayer();
             oneHigher.Name = "Ryan";
-            oneHigher.Play(smack2);
-            Console.WriteLine("-------------------");
 
-            //creating humanplayer and adding to game
+            //creating humanplayer and getting their name input
             HumanPlayer user = new HumanPlayer();
             Console.WriteLine("What's your name?> ");
             user.Name = Console.ReadLine();
-            user.Play(player1);
-            Console.WriteLine("-------------------");
 
-            //creating creative smack-talker and adding to game
+            //creating creative smack-talker
             CreativeSmackTalkingPlayer randomInsulter = new CreativeSmackTalkingPlayer();
             randomInsulter.Name = "Shakespeare";
-            randomInsulter.Play(smack);
-            Console.WriteLine("-------------------");
 
-            //creating sore loser and adding to game
+            //creating sore loser 
             SoreLoserPlayer brat = new SoreLoserPlayer();
             brat.Name = "Bratty Betty";
-            try
-            {
-                brat.Play(large);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Bratty Betty says: Ugh I hate this game!");
-            }
 
-            Console.WriteLine("-------------------");
+            //creating UpperHalfPlayer
+            UpperHalfPlayer high = new UpperHalfPlayer();
+            high.Name = "Rigged Ronnie";
+
 
 
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, smack2, oneHigher, user, randomInsulter, brat
+                player1, player2, player3, large, smack2, oneHigher, user, randomInsulter, brat, high
             };
             //code for rest of rolls, with random pairs of opponents
             PlayMany(players);
