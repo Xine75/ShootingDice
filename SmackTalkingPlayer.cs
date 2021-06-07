@@ -10,8 +10,8 @@ namespace ShootingDice
         public string Taunt { get; set; }
         public override void Play(Player other)
         {
-            base.Play(other);
             Console.WriteLine($"{Name} says: {Taunt}");
+            base.Play(other);
         }
     }
 }

@@ -19,7 +19,8 @@ namespace ShootingDice
         public override void Play(Player other)
         {
             base.Play(other);
-            int x = new Random().Next(6) + 1;
+
+            int x = new Random().Next(7);
             Console.Write($"{Name} says: ");
             Console.WriteLine(Insults[x]);
         }

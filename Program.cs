@@ -9,14 +9,14 @@ namespace ShootingDice
         static void Main(string[] args)
         {
             // //initial code for "regular" players
-            Player player1 = new Player();
-            player1.Name = "Bob";
+            Player reg1 = new Player();
+            reg1.Name = "Bob";
 
-            Player player2 = new Player();
-            player2.Name = "Sue";
+            Player reg2 = new Player();
+            reg2.Name = "Sue";
 
-            Player player3 = new Player();
-            player3.Name = "Wilma";
+            Player reg3 = new Player();
+            reg3.Name = "Wilma";
 
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
@@ -36,6 +36,7 @@ namespace ShootingDice
 
             //creating humanplayer (name input in their player code)
             HumanPlayer user = new HumanPlayer();
+            user.Name = "Christine";
 
             //creating creative smack-talker
             CreativeSmackTalkingPlayer randomInsulter = new CreativeSmackTalkingPlayer();
@@ -55,7 +56,7 @@ namespace ShootingDice
 
             //code for rest of rolls, with random pairs of opponents
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smack, smack2, oneHigher, user, randomInsulter, brat, high, noFun
+                reg1, reg2, reg3, large, smack, smack2, oneHigher, user, randomInsulter, brat, high, noFun
             };
             PlayMany(players);
         }
